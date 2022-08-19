@@ -9,7 +9,7 @@ function NewNote() {
     let singleNote = useSelector(state => state.notes.singleNote)
     const dispatch = useDispatch();
     const handleSubmit = (values, cb) => {
-        isAdd == true ? dispatch(addText(values)) : dispatch(editNote({ id: singleNote[0].id, ...values })); handleGiveUp()
+        isAdd === true ? dispatch(addText(values)) : dispatch(editNote({ id: singleNote[0].id, ...values })); handleGiveUp()
 
     }
     const handleGiveUp = () => {
@@ -25,7 +25,7 @@ function NewNote() {
         <div className="newNote">
             <Formik
                 enableReinitialize={true}
-                initialValues={isAdd == true ? { note: '', title: '', color: 'cd84f1' } : { note: singleNote[0].note, title: singleNote[0].title, color: singleNote[0].color }}
+                initialValues={isAdd === true ? { note: '', title: '', color: 'cd84f1' } : { note: singleNote[0].note, title: singleNote[0].title, color: singleNote[0].color }}
                 validationSchema={validationSchema}
                 onSubmit={(values, { resetForm }) => {
                     handleSubmit(values)
@@ -70,11 +70,11 @@ function NewNote() {
                                 <label htmlFor="color_4" id="color_4Button" className="radioButton"></label>
                             </div>
                             <div className="formControl">
-                                {isAdd == true && (
+                                {isAdd === true && (
                                     <button type='submit' className='addNoteButton'>Add Note</button>
                                 )}
 
-                                {isAdd == false && (
+                                {isAdd === false && (
                                     <>
                                         <button type='submit' style={{ marginRight: 10 }} className='addNoteButton'>Edit Note</button>
                                         <button type='button' onClick={handleGiveUp} className='addNoteButton'>Give up</button>

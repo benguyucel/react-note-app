@@ -6,7 +6,7 @@ function Search() {
     const [search, setSearch] = useState('')
     useEffect(() => {
         dispatch(searchFilter(search))
-    }, [search])
+    }, [dispatch, search])
     return (
         <form>
             <input type="text" onChange={(e) => setSearch(e.target.value)} className='formInput' placeholder='search any note' />

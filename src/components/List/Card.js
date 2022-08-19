@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdDelete } from 'react-icons/md'
 import { FiEdit } from 'react-icons/fi'
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deleteText, getSingleNote } from '../../redux/slice/noteSlice';
 function Card({ item, ...rest }) {
     const dispatch = useDispatch();
